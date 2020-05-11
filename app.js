@@ -16,15 +16,22 @@ searchInput.addEventListener('keyup', (e) => {
           // Show alert
           ui.showAlert('No user found on this username.', 'danger');
           ui.clearProfile();
+          ui.clearRepos();
+          ui.clearRepoTag();
         } else {
           ui.clearAlert();
           // Show Profile
           ui.showProfile(data.profile);
+          // Show repos
+          ui.showRepoTag();
+          ui.showRepos(data.repos);
         }
       })
       .catch((error) => console.log(error));
   } else {
     // Clear Profile
     ui.clearProfile();
+    ui.clearRepos();
+    ui.clearRepoTag();
   }
 });

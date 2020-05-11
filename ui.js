@@ -1,6 +1,8 @@
 class Ui {
   constructor() {
     this.profile = document.querySelector('#profile');
+    this.repos = document.querySelector('#repos');
+    this.showRepoText = document.querySelector('#showrepo');
   }
 
   showProfile(data) {
@@ -16,11 +18,11 @@ class Ui {
                         Profile</a>
                 </div>
                 <div class="col-md-8 mt-4">
-                    <div class="badges d-flex justify-content-between">
-                        <span class="badge badge-pill badge-success p-2">Followers: ${data.followers}</span>
-                        <span class="badge badge-pill badge-warning p-2">Following: ${data.following}</span>
-                        <span class="badge badge-pill badge-primary p-2">Public Repos: ${data.public_repos}</span>
-                        <span class="badge badge-pill badge-secondary p-2">Public Gish: ${data.public_gists}</span>
+                    <div class="badges">
+                        <span class="badge badge-pill badge-success p-1">Followers: ${data.followers}</span>
+                        <span class="badge badge-pill badge-warning p-1">Following: ${data.following}</span>
+                        <span class="badge badge-pill badge-primary p-1">Public Repos: ${data.public_repos}</span>
+                        <span class="badge badge-pill badge-secondary p-1">Public Gish: ${data.public_gists}</span>
                     </div>
                     <ul class="list-group mt-3">
                         <li class="list-group-item">Company: ${data.company}</li>
@@ -35,8 +37,42 @@ class Ui {
     `;
   }
 
+  showRepos(data) {
+    let output = '';
+    data.forEach((e) => {
+      output += `
+      <div class="card px-4 pb-3 mb-3">
+          <div class="row">
+              <div class="col-md-6 pt-3">
+                  <a href="${e.html_url}" target="_blank">${e.name}</a>
+              </div>
+              <div class="col-md-6 mt-3">
+                  <span class="badge badge-primary">Stars: ${e.stargazers_count}</span>
+                  <span class="badge badge-secondary">Watchers: ${e.watchers_count}</span>
+                  <span class="badge badge-success">Forks: ${e.forks_count}</span>
+              </div>
+          </div>
+      </div>
+      `;
+    });
+
+    this.repos.innerHTML = output;
+  }
+
   clearProfile() {
     this.profile.innerHTML = '';
+  }
+
+  showRepoTag() {
+    this.showRepoText.innerText = 'Latest Repos';
+  }
+
+  clearRepos() {
+    this.repos.innerHTML = '';
+  }
+
+  clearRepoTag() {
+    this.showRepoText.innerText = '';
   }
 
   showAlert(message, type) {
