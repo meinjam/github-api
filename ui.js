@@ -13,7 +13,7 @@ class Ui {
                 <div class="col-md-4 pt-2">
                     <img src="${data.avatar_url}"
                         class="img-fluid rounded-circle" alt="">
-                    <h4 class="text-center mt-2">${data.name}</h4>    
+                    <h4 class="text-center mt-2 font-weight-bold">${data.name}</h4>    
                     <a href="${data.html_url}" class="btn btn-info btn-block btn-sm mt-2" target="_blank">See
                         Profile</a>
                 </div>
@@ -25,10 +25,10 @@ class Ui {
                         <span class="badge badge-pill badge-secondary p-1">Public Gish: ${data.public_gists}</span>
                     </div>
                     <ul class="list-group mt-3">
-                        <li class="list-group-item">Company: ${data.company}</li>
-                        <li class="list-group-item">Website/Blog: ${data.blog}</li>
-                        <li class="list-group-item">Location: ${data.location}</li>
-                        <li class="list-group-item">Member Since: ${data.created_at}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Company:</span> ${data.company}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Website/Blog:</span> ${data.blog}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Location:</span> ${data.location}</li>
+                        <li class="list-group-item"><span class="font-weight-bold">Member Since:</span> ${data.created_at}</li>
                     </ul>
                 </div>
             </div>
