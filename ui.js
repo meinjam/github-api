@@ -44,7 +44,7 @@ class Ui {
       <div class="card px-4 pb-3 mb-3">
           <div class="row">
               <div class="col-md-6 pt-3">
-                  <a href="${e.html_url}" target="_blank">${e.name}</a>
+                  <span class="font-weight-bold">Repository Name: </span><a href="${e.html_url}" target="_blank">${e.name}</a>
               </div>
               <div class="col-md-6 mt-3">
                   <span class="badge badge-primary">Stars: ${e.stargazers_count}</span>
@@ -52,6 +52,7 @@ class Ui {
                   <span class="badge badge-success">Forks: ${e.forks_count}</span>
               </div>
           </div>
+          <p class="pt-2"><span class="font-weight-bold">Description: </span>${e.description}</p>
       </div>
       `;
     });
@@ -64,7 +65,7 @@ class Ui {
   }
 
   showRepoTag() {
-    this.showRepoText.innerText = 'Latest Repos';
+    this.showRepoText.innerText = 'Latest Repository';
   }
 
   clearRepos() {
